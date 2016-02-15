@@ -11,13 +11,14 @@ namespace Lumia_Trial.Controllers
 {
     public class CompanyController : Controller
     {
-        private IRegionService regionService;
-        private ISelectionDateService selectionDateService;
-        private ILumiaTrialFormDataService lumiaTrialFormDataService;
-
-
-        public CompanyController(IRegionService regionService, ISelectionDateService selectionDateService, ILumiaTrialFormDataService lumiaTrialFormDataService)
+        private readonly IDeviceService deviceService;
+        private readonly IRegionService regionService;
+        private readonly ISelectionDateService selectionDateService;
+        private readonly ILumiaTrialFormDataService lumiaTrialFormDataService;
+     
+        public CompanyController(IDeviceService deviceService, IRegionService regionService, ISelectionDateService selectionDateService, ILumiaTrialFormDataService lumiaTrialFormDataService)
         {
+            this.deviceService = deviceService;
             this.regionService = regionService;
             this.selectionDateService = selectionDateService;
             this.lumiaTrialFormDataService = lumiaTrialFormDataService;
@@ -25,6 +26,7 @@ namespace Lumia_Trial.Controllers
 
         public ActionResult Index()
         {
+
             return View();
         }
 
@@ -37,6 +39,11 @@ namespace Lumia_Trial.Controllers
             }
 
             return View();
+        }
+
+        private void BuildViewModel(CompanyViewModel model)
+        {
+            model.Devices = this.deviceService.GetAll(new Guid()).ToList();
         }
     }
 }

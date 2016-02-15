@@ -4,15 +4,19 @@ using System.ComponentModel.DataAnnotations;
 using System.Data.Entity.Migrations.Model;
 using System.Linq;
 using System.Web;
+using Lumia_Trial.DataAccess.DataEntites;
+using Lumia_Trial.DataAccess.entites;
 
 namespace Lumia_Trial.Models
 {
     public class CompanyViewModel
     {
 
-        public List<string> Countries { get; set; }
+        public Guid RegionGuid { get; set; }
 
-        public List<string> RefreshDate { get; set; }
+        public List<SelectionDate> RefreshDates { get; set; }
+
+        public List<Device> Devices { get; set; }
 
         [Required]
         public string ContactName { get; set; }
@@ -35,26 +39,16 @@ namespace Lumia_Trial.Models
         [Required]
         public string CompanyName { get; set; }
 
-        public string HandsetOpotunities { get; set; }
+        public List<HandsetOpotunities> HandsetOpotunities { get; set; }
+
+        public Guid HandsetOpotunitiesId { get; set; }
 
         public string HandsetRefreshDate { get; set; }
 
         public string CurrentHandsetProvider { get; set; }
 
         public string CurrentHandsetOperator { get; set; }
-
-        public bool IsLumia950 { get; set; }
-
-        public bool IsLumia640 { get; set; }
-
-        public bool IsLumia650 { get; set; }
-
-        public bool IsLumia950XL { get; set; }
-
-        public bool IsLumia640XL { get; set; }
-
-        public bool IsMicrosoftDisplayDock { get; set; }
-
+        
         [Required]
         public bool IsTermsAcepted { get; set; }
 

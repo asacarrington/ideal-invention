@@ -14,11 +14,11 @@ namespace Lumia_Trial.Services
         {
         }
 
-        public IEnumerable<SelectionDate> GetAll(Guid region)
+        public IEnumerable<SelectionDate> GetAll(Guid regionGuid)
         {
             using (var context = new LumiaContext())
             {
-                return context.SelectionDates.Where(x => x.RegionId == region).ToList();
+                return context.SelectionDates.Where(x => x.RegionId == regionGuid).ToList();
             }
         }
     }

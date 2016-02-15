@@ -15,7 +15,7 @@ namespace Lumia_Trial.Services
         {
         }
 
-        public IEnumerable<Region> GetAll()
+        public IList<Region> GetAll()
         {
             using (var context = new LumiaContext())
             {

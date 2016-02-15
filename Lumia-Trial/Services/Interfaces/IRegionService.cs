@@ -9,6 +9,6 @@ namespace Lumia_Trial.Services.Interfaces
 {
     public interface IRegionService
     {
-        IEnumerable<Region> GetAll();
+        IList<Region> GetAll();
     }
 }
