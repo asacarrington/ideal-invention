@@ -73,6 +73,9 @@ namespace Lumia_Trial.Controllers
                 return View(model);
             }
 
+            model.SelectedRegionName = regionService.Get(model.RegionGuid).Name;
+            model.SelectionDateName = selectionDateService.Get(model.SelectedDateGuid).Selection.ToShortDateString();
+
             return RedirectToAction("FormComplete", new { regionGuid = model.RegionGuid});
         }
 

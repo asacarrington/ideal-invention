@@ -22,6 +22,14 @@ namespace Lumia_Trial.Services
                 return context.Regions.Where(x => x.IsEnabled).ToList();
             }
         }
-        
+
+        public Region Get(Guid regionId)
+        {
+            using (var context = new LumiaContext())
+            {
+                return context.Regions.FirstOrDefault(x => x.Id == regionId);
+            }
+        }
+
     }
 }

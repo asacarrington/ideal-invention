@@ -21,5 +21,13 @@ namespace Lumia_Trial.Services
                 return context.SelectionDates.Where(x => x.RegionId == regionGuid).ToList();
             }
         }
+
+        public SelectionDate Get(Guid selectedDateGuid)
+        {
+            using (var context = new LumiaContext())
+            {
+                return context.SelectionDates.FirstOrDefault(x => x.Id == selectedDateGuid);
+            }
+        }
     }
 }

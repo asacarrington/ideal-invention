@@ -10,5 +10,7 @@ namespace Lumia_Trial.Services.Interfaces
     public  interface ISelectionDateService
     {
         IEnumerable<SelectionDate> GetAll(Guid regionGuid);
+
+        SelectionDate Get(Guid selectedDateGuid);
     }
 }
