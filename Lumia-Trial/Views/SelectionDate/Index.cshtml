@@ -1,6 +1,6 @@
 ﻿@model Lumia_Trial.Models.SelectionDateViewModel
 
-<h2>Select Refresh Date</h2>
+<h2>Select Refresh Date  @Model.TimeFrame.DayCount</h2>
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
@@ -8,11 +8,11 @@
     <div class="form-horizontal">
 
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-
+        @Html.HiddenFor(model => model.RegionId, new { htmlAttributes = new { @class = "form-control" } })
         <div class="form-group">
             @Html.LabelFor(model => model.SelectionDateId, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.SelectionDateId, new SelectList(Model.SelectionDates, "Id", "Name", Model.SelectionDates.SingleOrDefault(m => m.Id == Model.SelectionDateId)), new { @class = "form-control" })
+                @Html.DropDownListFor(model => model.SelectionDateId, new SelectList(Model.SelectionDates, "Id", "Selection", Model.SelectionDates.SingleOrDefault(m => m.Id == Model.SelectionDateId)), new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.SelectionDateId, "", new { @class = "text-danger" })
             </div>
         </div>

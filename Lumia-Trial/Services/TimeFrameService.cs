@@ -8,18 +8,20 @@ using Lumia_Trial.Services.Interfaces;
 
 namespace Lumia_Trial.Services
 {
-    public class DeviceService : IDeviceService
+    public class TimeFrameService : ITimeFrameService
     {
-        public DeviceService()
+        public TimeFrameService()
         {
         }
 
-        public IList<Device> GetAll(Guid regionGuid)
+        public TimeFrame Get(Guid regionId)
         {
             using (var context = new LumiaContext())
             {
-                return context.Devices.Where(x => x.RegionId == regionGuid).ToList();
+                return context.TimeFrames.FirstOrDefault(x => x.RegionId == regionId);
             }
         }
+
     }
 }
+    

@@ -52,6 +52,16 @@ namespace Lumia_Trial.DataAccess.Context
             };
             timeFrames.ForEach(s => context.TimeFrames.Add(s));
             context.SaveChanges();
+
+            var handsetOpotunities = new List<HandsetOpotunity>
+            {
+                new HandsetOpotunity{Id = Guid.NewGuid(),Name = "Test"},
+                new HandsetOpotunity{Id = Guid.NewGuid(),Name = "Test1"},
+                new HandsetOpotunity{Id = Guid.NewGuid(),Name = "Test2"},
+                new HandsetOpotunity{Id = Guid.NewGuid(),Name = "Test3"}
+            };
+            handsetOpotunities.ForEach(s => context.HandsetOpotunitieses.Add(s));
+            context.SaveChanges();
         }
     }
 }

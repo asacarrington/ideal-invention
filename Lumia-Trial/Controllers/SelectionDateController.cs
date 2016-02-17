@@ -13,11 +13,13 @@ namespace Lumia_Trial.Controllers
         private readonly IRegionService regionService;
         private readonly ISelectionDateService selectionDateService;
         private readonly ILumiaTrialFormDataService lumiaTrialFormDataService;
+        private readonly ITimeFrameService timeFrameService;
 
 
-        public SelectionDateController(IRegionService regionService, ISelectionDateService selectionDateService, ILumiaTrialFormDataService lumiaTrialFormDataService)
+        public SelectionDateController(ITimeFrameService timeFrameService, IRegionService regionService, ISelectionDateService selectionDateService, ILumiaTrialFormDataService lumiaTrialFormDataService)
         {
             this.regionService = regionService;
+            this.timeFrameService = timeFrameService;
             this.selectionDateService = selectionDateService;
             this.lumiaTrialFormDataService = lumiaTrialFormDataService;
         }
@@ -25,6 +27,7 @@ namespace Lumia_Trial.Controllers
         public ActionResult Index(Guid regionId)
         {
             var model = new SelectionDateViewModel();
+            model.RegionId = regionId;
             this.BuildViewModel(model, regionId);
 
             return View(model);
@@ -38,12 +41,13 @@ namespace Lumia_Trial.Controllers
                 return View(model);
             }
 
-            return View();
+            return RedirectToAction("First", "Company", new { regionGuid = model.RegionId, selectionDateGuid = model.SelectionDateId });
         }
 
         private void BuildViewModel(SelectionDateViewModel model, Guid regionId)
         {
             model.SelectionDates = this.selectionDateService.GetAll(regionId).ToList();
+            model.TimeFrame = this.timeFrameService.Get(regionId);
         }
     }
 }

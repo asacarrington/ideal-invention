@@ -14,6 +14,8 @@ namespace Lumia_Trial.Models
 
         public Guid RegionGuid { get; set; }
 
+        public Guid SelectedDateGuid { get; set; }
+
         public List<SelectionDate> RefreshDates { get; set; }
 
         public List<Device> Devices { get; set; }
@@ -39,7 +41,7 @@ namespace Lumia_Trial.Models
         [Required]
         public string CompanyName { get; set; }
 
-        public List<HandsetOpotunities> HandsetOpotunities { get; set; }
+        public List<HandsetOpotunity> HandsetOpotunities { get; set; }
 
         public Guid HandsetOpotunitiesId { get; set; }
 
@@ -53,6 +55,8 @@ namespace Lumia_Trial.Models
         public bool IsTermsAcepted { get; set; }
 
         public bool IsSharedInformationAllowed { get; set; }
+
+        public TimeFrame TimeFrame { get; set; }
 
     }
 }

@@ -23,6 +23,9 @@ namespace Lumia_Trial
             container.RegisterType<ISelectionDateService, SelectionDateService>();
             container.RegisterType<ILumiaTrialFormDataService, LumiaTrialFormDataService>();
             container.RegisterType<IEmailService, Services.EmailService>();
+            container.RegisterType<ITimeFrameService, TimeFrameService>();
+            container.RegisterType<IDeviceService, DeviceService>();
+            container.RegisterType<IHandsetOpotunitiesService, HandsetOpotunityService>();
 
             return container;
         }

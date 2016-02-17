@@ -8,17 +8,16 @@ using Lumia_Trial.Services.Interfaces;
 
 namespace Lumia_Trial.Services
 {
-    public class DeviceService : IDeviceService
+    public class HandsetOpotunityService : IHandsetOpotunitiesService
     {
-        public DeviceService()
+        public HandsetOpotunityService()
         {
         }
-
-        public IList<Device> GetAll(Guid regionGuid)
+        public IList<HandsetOpotunity> GetAll()
         {
             using (var context = new LumiaContext())
             {
-                return context.Devices.Where(x => x.RegionId == regionGuid).ToList();
+                return context.HandsetOpotunitieses.ToList();
             }
         }
     }

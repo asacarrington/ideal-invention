@@ -24,6 +24,8 @@ namespace Lumia_Trial.DataAccess.Context
 
         public DbSet<TimeFrame> TimeFrames { get; set; }
 
+        public DbSet<HandsetOpotunity> HandsetOpotunitieses { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();

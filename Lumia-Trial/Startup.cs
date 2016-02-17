@@ -8,7 +8,7 @@ namespace Lumia_Trial
     {
         public void Configuration(IAppBuilder app)
         {
-            ConfigureAuth(app);
+            
         }
     }
 }

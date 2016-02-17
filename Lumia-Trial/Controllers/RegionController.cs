@@ -38,7 +38,7 @@ namespace Lumia_Trial.Controllers
                 return View(model);
             }
 
-            return View();
+            return RedirectToAction("Index", "SelectionDate", new { regionId = model.RegionId });
         }
 
         private void BuildViewModel(RegionViewModel model)

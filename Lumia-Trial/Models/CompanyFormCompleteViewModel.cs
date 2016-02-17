@@ -6,14 +6,8 @@ using Lumia_Trial.DataAccess.DataEntites;
 
 namespace Lumia_Trial.Models
 {
-    public class SelectionDateViewModel
+    public class CompanyFormCompleteViewModel
     {
-        public Guid SelectionDateId { get; set; }
-
-        public Guid RegionId { get; set; }
-
         public TimeFrame TimeFrame { get; set; }
-
-        public List<SelectionDate> SelectionDates { get; set; }
     }
 }

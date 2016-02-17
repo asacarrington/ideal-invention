@@ -1,6 +1,11 @@
 ﻿@model Lumia_Trial.Models.CompanyViewModel
 
-<h2>Select Region</h2>
+<div>
+    <p>
+        Please Complete the registration form
+        @Model.TimeFrame.DayCount
+    </p>
+</div>
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
@@ -8,7 +13,8 @@
     <div class="form-horizontal">
 
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-
+        @Html.HiddenFor(model => model.RegionGuid, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.HiddenFor(model => model.SelectedDateGuid, new { htmlAttributes = new { @class = "form-control" } })
 
         <!-- Form 1 starts -->
         <div id="form-part-one">
@@ -70,62 +76,6 @@
             </div>
         </div>
         <!-- Form 1 ends -->
-
-        <!-- Form 2 starts -->
-        <div id="form-part-two">
-            <div class="form-group">
-                @Html.LabelFor(model => model.HandsetOpotunitiesId, htmlAttributes: new {@class = "control-label col-md-2"})
-                <div class="col-md-10">
-                    @Html.DropDownListFor(model => model.HandsetOpotunitiesId, new SelectList(Model.HandsetOpotunities, "Id", "Name", Model.HandsetOpotunities.SingleOrDefault(m => m.Id == Model.HandsetOpotunitiesId)), new {@class = "form-control"})
-                    @Html.ValidationMessageFor(model => model.HandsetOpotunitiesId, "", new {@class = "text-danger"})
-                </div>
-            </div>
-
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.HandsetRefreshDate, htmlAttributes: new {@class = "control-label col-md-2"})
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.HandsetRefreshDate, new {htmlAttributes = new {@class = "form-control"}})
-                    @Html.ValidationMessageFor(model => model.HandsetRefreshDate, "", new {@class = "text-danger"})
-                </div>
-            </div>
-
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.CurrentHandsetProvider, htmlAttributes: new {@class = "control-label col-md-2"})
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.CurrentHandsetProvider, new {htmlAttributes = new {@class = "form-control"}})
-                    @Html.ValidationMessageFor(model => model.CurrentHandsetProvider, "", new {@class = "text-danger"})
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.CurrentHandsetOperator, htmlAttributes: new {@class = "control-label col-md-2"})
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.CurrentHandsetOperator, new {htmlAttributes = new {@class = "form-control"}})
-                    @Html.ValidationMessageFor(model => model.CurrentHandsetOperator, "", new {@class = "text-danger"})
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.IsTermsAcepted, htmlAttributes: new {@class = "control-label col-md-2"})
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.IsTermsAcepted, new {htmlAttributes = new {@class = "form-control"}})
-                    @Html.ValidationMessageFor(model => model.IsTermsAcepted, "", new {@class = "text-danger"})
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.IsSharedInformationAllowed, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.IsSharedInformationAllowed, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.IsSharedInformationAllowed, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>
-        <!-- Form 2 ends -->
-
-
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
