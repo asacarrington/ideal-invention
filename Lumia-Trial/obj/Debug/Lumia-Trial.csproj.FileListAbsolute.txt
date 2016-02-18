@@ -96,3 +96,5 @@
 \\Mac\Home\Documents\Visual Studio 2015\Projects\Lumia-Trial\Lumia-Trial\bin\Microsoft.Practices.Unity.Configuration.xml
 \\Mac\Home\Documents\Visual Studio 2015\Projects\Lumia-Trial\Lumia-Trial\bin\Microsoft.Practices.Unity.Mvc.xml
 \\Mac\Home\Documents\Visual Studio 2015\Projects\Lumia-Trial\Lumia-Trial\bin\Microsoft.Practices.Unity.RegistrationByConvention.xml
+\\Mac\Home\Documents\Visual Studio 2015\Projects\Lumia-Trial\Lumia-Trial\obj\Debug\Lumia_Trial.Resources.EmailSettings.resources
+\\Mac\Home\Documents\Visual Studio 2015\Projects\Lumia-Trial\Lumia-Trial\obj\Debug\Lumia-Trial.csproj.GenerateResource.Cache
