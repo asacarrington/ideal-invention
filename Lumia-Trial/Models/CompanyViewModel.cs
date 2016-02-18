@@ -16,11 +16,19 @@ namespace Lumia_Trial.Models
 
         public Guid RegionGuid { get; set; }
 
+        public string SelectedRegionName { get; set; }
+
+        public string SelectionDateName { get; set; }
+
+        public string SelectedHandsetRefreshDate { get; set; }
+
+        public string SelectedHandsetOpotunityName { get; set; }
+
         public Guid SelectedDateGuid { get; set; }
 
         public List<SelectionDate> RefreshDates { get; set; }
 
-        public List<Device> Devices { get; set; }
+        public List<DeviceViewModel> Devices { get; set; }
 
         [Required]
         [DisplayName("Contact Name")]

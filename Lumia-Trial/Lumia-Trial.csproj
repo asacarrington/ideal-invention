@@ -217,10 +217,16 @@
     </Compile>
     <Compile Include="Models\CompanyFormCompleteViewModel.cs" />
     <Compile Include="Models\CompanyViewModel.cs" />
+    <Compile Include="Models\DeviceViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\RegionViewModel.cs" />
     <Compile Include="Models\SelectionDateViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\EmailSettings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EmailSettings.resx</DependentUpon>
+    </Compile>
     <Compile Include="Services\DeviceService.cs" />
     <Compile Include="Services\EmailService.cs" />
     <Compile Include="Services\HandsetOpotunityService.cs" />
@@ -284,6 +290,12 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\EmailSettings.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>EmailSettings.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

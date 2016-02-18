@@ -18,9 +18,10 @@ namespace Lumia_Trial.Controllers
         private readonly ILumiaTrialFormDataService lumiaTrialFormDataService;
         private readonly ITimeFrameService timeFrameService;
         private readonly IHandsetOpotunitiesService handsetOpotunitiesService;
+        private readonly IEmailService emailService;
         private CompanyViewModel companyViewModel;
 
-        public CompanyController(IHandsetOpotunitiesService handsetOpotunitiesService, ITimeFrameService timeFrameService, IDeviceService deviceService, IRegionService regionService, ISelectionDateService selectionDateService, ILumiaTrialFormDataService lumiaTrialFormDataService)
+        public CompanyController(IEmailService emailService, IHandsetOpotunitiesService handsetOpotunitiesService, ITimeFrameService timeFrameService, IDeviceService deviceService, IRegionService regionService, ISelectionDateService selectionDateService, ILumiaTrialFormDataService lumiaTrialFormDataService)
         {
             this.deviceService = deviceService;
             this.regionService = regionService;
@@ -28,6 +29,7 @@ namespace Lumia_Trial.Controllers
             this.lumiaTrialFormDataService = lumiaTrialFormDataService;
             this.timeFrameService = timeFrameService;
             this.handsetOpotunitiesService = handsetOpotunitiesService;
+            this.emailService = emailService;
             this.companyViewModel = new CompanyViewModel();
         }
 
@@ -36,6 +38,7 @@ namespace Lumia_Trial.Controllers
             this.companyViewModel = new CompanyViewModel();
             this.companyViewModel.RegionGuid = regionGuid;
             this.companyViewModel.SelectedDateGuid = selectionDateGuid;
+
             BuildViewModel(this.companyViewModel);
 
             return View(this.companyViewModel);
@@ -75,15 +78,24 @@ namespace Lumia_Trial.Controllers
 
             model.SelectedRegionName = regionService.Get(model.RegionGuid).Name;
             model.SelectionDateName = selectionDateService.Get(model.SelectedDateGuid).Selection.ToShortDateString();
+            model.SelectedHandsetOpotunityName = this.handsetOpotunitiesService.Get(model.HandsetOpotunitiesId).Name;
 
+            //this.emailService.Send(model);
             return RedirectToAction("FormComplete", new { regionGuid = model.RegionGuid});
         }
 
         private void BuildViewModel(CompanyViewModel model)
         {
             model.TimeFrame = this.timeFrameService.Get(model.RegionGuid);
-            model.Devices = this.deviceService.GetAll(model.RegionGuid).ToList();
+            model.Devices = this.deviceService.GetAll(model.RegionGuid).Select(x => new DeviceViewModel
+            {
+                Id = x.Id,
+                Name = x.Name,
+                Enabled = x.isEnabled,
+                Checked = false
+            }).ToList();
             model.HandsetOpotunities = this.handsetOpotunitiesService.GetAll().ToList();
+            model.SelectedHandsetRefreshDate = this.selectionDateService.Get(model.SelectedDateGuid).Selection.ToLongDateString();
         }
     }
 }

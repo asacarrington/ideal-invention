@@ -20,5 +20,13 @@ namespace Lumia_Trial.Services
                 return context.HandsetOpotunitieses.ToList();
             }
         }
+        
+        public HandsetOpotunity Get(Guid opotunityGuid)
+        {
+            using (var context = new LumiaContext())
+            {
+                return context.HandsetOpotunitieses.FirstOrDefault(x => x.Id == opotunityGuid);
+            }
+        }
     }
 }

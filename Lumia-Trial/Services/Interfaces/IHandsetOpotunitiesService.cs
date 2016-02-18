@@ -10,5 +10,7 @@ namespace Lumia_Trial.Services.Interfaces
     public interface IHandsetOpotunitiesService
     {
         IList<HandsetOpotunity> GetAll();
+
+        HandsetOpotunity Get(Guid opotunityGuid);
     }
 }
